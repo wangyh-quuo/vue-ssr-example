@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build:client": "cross-env WEBPACK_TARGET=client vue-cli-service build --no-clean",
+    "build:server": "cross-env WEBPACK_TARGET=server vue-cli-service build --no-clean",
+    "build": "npm run build:server && npm run build:client",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
