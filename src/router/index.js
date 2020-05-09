@@ -21,16 +21,15 @@ const routes = [
   }
 ];
 
-export function createRouter () {
+export function createRouter() {
   return new VueRouter({
     mode: "history",
     base: process.env.BASE_URL,
     routes
-  })
+  });
 }
 // const router = new VueRouter({
 //   mode: "history",
 //   base: process.env.BASE_URL,
 //   routes
 // });
-

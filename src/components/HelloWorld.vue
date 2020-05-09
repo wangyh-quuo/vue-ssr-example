@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <div>预获取的数据{{ item }}</div>
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br />
@@ -105,8 +106,22 @@
 <script>
 export default {
   name: "HelloWorld",
+  data() {
+    return {
+      id: "helloWorld"
+    };
+  },
   props: {
     msg: String
+  },
+  asyncData({ store }) {
+    // 触发 action 后，会返回 Promise
+    return store.dispatch("fetchItem", "helloWorld");
+  },
+  computed: {
+    item() {
+      return this.$store.state.items;
+    }
   }
 };
 </script>
